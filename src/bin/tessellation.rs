@@ -276,6 +276,7 @@ fn main() {
 
         match future {
             Ok(future) => {
+                future.wait(None).unwrap();
                 previous_frame_end = Box::new(future) as Box<_>;
             }
             Err(FlushError::OutOfDate) => {
